@@ -6,6 +6,7 @@ import {
     CHANGE_PAGE_SIZE,
     JUMP_PAGE,
     SEARCH_DATA,
+    TOGGLE_ALL_COLUMN,
 } from '../actions/DataActions.js'
 
 //can use route as well;but simply use sessionStorage is ok;
@@ -68,6 +69,10 @@ const DataSourceReducer = (state = INITIAL_STATE, action) => {
                 totalPage: Math.ceil(newData.length/state.pageSize),
                 data:newData,
                 searchType: action.searchType
+            });
+        case TOGGLE_ALL_COLUMN:
+            return Object.assign({},state,{
+                selectedColumns: action.columns
             });
 		default:
 			return state

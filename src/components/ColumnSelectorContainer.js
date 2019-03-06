@@ -1,6 +1,6 @@
 import ColumnSelector from './ColumnSelector.js'
 import { connect } from 'react-redux'
-import { addColumn, removeColumn } from '../actions/DataActions.js'
+import { addColumn, removeColumn,toggleAllColumn } from '../actions/DataActions.js'
 
 const mapStateToProps = state => {
     return {
@@ -12,7 +12,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = (dispatch) => {
     return {
         addColumn: column => dispatch(addColumn(column)),
-        removeColumn: column => dispatch(removeColumn(column))
+        removeColumn: column => dispatch(removeColumn(column)),
+        toggleAllColumn: columns => dispatch(toggleAllColumn(columns)),
     }
 }
 
