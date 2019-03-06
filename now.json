@@ -4,7 +4,7 @@
   "alias": ["ui.melor.xyz"],
   "github": {
     "enabled": true,
-    "autoAlias": false
+    "autoAlias": true
   },
   "builds": [
     {
