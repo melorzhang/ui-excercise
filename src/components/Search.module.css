@@ -1,0 +1,22 @@
+.Search {
+    display: inline-flex;
+    margin-bottom: 12px;
+    user-select:none;
+}
+.Search .Wrap{
+    position: relative;
+}
+.Search .Wrap .Icon{
+    position: absolute;
+    left: 5px;
+    top: 5px;
+}
+.Search .Wrap .SearchData{
+    padding: 5px 5px 5px 28px;
+    min-width: 80px;
+    box-sizing: border-box;
+}
+.Search .Select{
+    padding: 5px;
+    box-sizing: border-box;
+}

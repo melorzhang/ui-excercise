@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import style from './ColumenSelector.module.css';
 class ColumnSelector extends Component {
 
 handleToggleColumn = column => {
@@ -20,10 +20,10 @@ handleAll=()=>{
 
 render() {
     return (
-        <div className="ColumnSelector">
-            <div className="Label">select display columns:&nbsp;</div>
-            <div className="Selectors">
-                <label className="Selector" >
+        <div className={style.ColumnSelector}>
+            <div className={style.Label}>select display columns:&nbsp;</div>
+            <div className={style.Selectors}>
+                <label className={style.Selector} >
                     <input
                         type="checkbox"
                         onChange={() => this.handleAll()}
@@ -32,7 +32,7 @@ render() {
                     all
                 </label>
                 {this.props.allColumns.map((column,index)=> (
-                    <label className="Selector" key={index}>
+                    <label className={style.Selector} key={index}>
                         <input
                             type="checkbox"
                             onChange={() => this.handleToggleColumn(column)}

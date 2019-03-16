@@ -1,0 +1,23 @@
+.ColumnSelector {
+    padding-top: 12px;
+    display: flex;
+    align-items: center;
+    /*justify-content: center;*/
+}
+.Label{
+    white-space : nowrap;
+    margin-bottom: 12px;
+}
+.Selectors{
+    display: flex;
+    flex-wrap: wrap;
+    /*justify-content: center;*/
+}
+.Selector {
+    margin: 0 0 12px 12px;
+    padding: 0 12px;
+    line-height: 2;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    cursor: pointer;
+}

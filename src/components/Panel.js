@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import style from './Panel.module.css';
 
 class Panel extends Component {
     constructor(props){
@@ -10,16 +11,16 @@ class Panel extends Component {
     render() {
         const {ifShow} = this.state;
         return (
-            <div className={`Panel${ifShow?" active":""}`}>
-                <div className="Header">
+            <div className={`${style.Panel}${ifShow?` ${style.active}`:""}`}>
+                <div className={style.Header}>
                     <label>
                         <input type="checkbox" checked={ifShow} onChange={()=>{this.setState({ifShow:!ifShow})}}/>
                         {this.props.header}
-                        <span className="Icon"><span className="chevron"></span></span>
+                        <span className={style.Icon}><span className={style.chevron}></span></span>
                     </label>
                 </div>
-                <div className="Body">
-                    <div className="Content">
+                <div className={style.Body}>
+                    <div className={style.Content}>
                         {this.props.children}
                     </div>
                 </div>
