@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-
+import style from './DataTable.module.css';
 class DataTable extends Component {
 
 render() {
-    
+
     return (
-        <table className="DataTable">
+        <table className={style.DataTable}>
             <tbody>
             <tr>
                 {this.props.selectedColumns.map((selectedColumn,index )=> (

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import style from './Pagination.module.css';
 
 class Pagination extends Component {
     constructor(props){
@@ -32,7 +33,7 @@ class Pagination extends Component {
             return new Array(totalPage).fill(0).map((val,index)=>(
                 <div
                     key={index+1}
-                    className={`Item NumberItem${index+1===currentPage?" active":""}`}
+                    className={`${style.Item} ${index+1===currentPage?` ${style.active}`:""}`}
                     onClick={()=>index+1!==currentPage && this.handleJump(index+1)}
                 >{index+1}</div>
             ))
@@ -41,7 +42,7 @@ class Pagination extends Component {
                 return new Array(numberCount).fill(0).map((val,index)=>(
                     <div
                         key={currentPage+index+1-prevNumberCount}
-                        className={`Item NumberItem${currentPage+index+1-prevNumberCount===currentPage?" active":""}`}
+                        className={`${style.Item} ${currentPage+index+1-prevNumberCount===currentPage?` ${style.active}`:""}`}
                         onClick={()=>currentPage+index+1-prevNumberCount!==currentPage && this.handleJump(currentPage+index+1-prevNumberCount)}
                     >{currentPage+index+1-prevNumberCount}</div>
                 ))
@@ -49,7 +50,7 @@ class Pagination extends Component {
                 return new Array(numberCount).fill(0).map((val,index)=>(
                     <div
                         key={index+1}
-                        className={`Item NumberItem${index+1===currentPage?" active":""}`}
+                        className={`${style.Item} ${index+1===currentPage?` ${style.active}`:""}`}
                         onClick={()=>index+1!==currentPage && this.handleJump(index+1)}
                     >{index+1}</div>
                 ))
@@ -60,20 +61,20 @@ class Pagination extends Component {
     render() {
         const {pageSize,currentPage,totalPage} = this.props;
         return totalPage?(
-            <div className="Pagination">
-                <div className="CtrlPanel">
-                    <div className="Ctrl">{currentPage} / {totalPage}</div>
-                    <div className="Ctrl">
+            <div className={style.Pagination}>
+                <div className={style.CtrlPanel}>
+                    <div className={style.Ctrl}>{currentPage} / {totalPage}</div>
+                    <div className={style.Ctrl}>
                         pageSize:&nbsp;
-                        <select className="Select" value={pageSize} onChange={this.handleChange}>
+                        <select className={style.Select} value={pageSize} onChange={this.handleChange}>
                             {this.props.allPageSize.map((pageSize,index)=> (
                                 <option key={index} value={pageSize}>{pageSize}</option>
                             ))}
                         </select>
                     </div>
-                    <div className="Ctrl">
+                    <div className={style.Ctrl}>
                         <input
-                            className="Jump"
+                            className={style.Jump}
                             placeholder="jump to"
                             type="number"
                             value={this.state.jumpToPage}
@@ -101,21 +102,21 @@ class Pagination extends Component {
                         />
                     </div>
                 </div>
-                <div className="ItemBox">
+                <div className={style.ItemBox}>
                     <div
-                        className={`Item${currentPage===1?" disabled":""}`}
+                        className={`${style.Item}${currentPage===1?` ${style.disabled}`:""}`}
                         onClick={()=>this.handleJump(1)}
                     >&laquo;</div>
                     <div
-                        className={`Item${currentPage===1?" disabled":""}`}
+                        className={`${style.Item}${currentPage===1?` ${style.disabled}`:""}`}
                         onClick={()=>this.handleJump(currentPage-1)}>&lt;</div>
                     {this.renderPageNumber()}
                     <div
-                        className={`Item${currentPage===totalPage?" disabled":""}`}
+                        className={`${style.Item}${currentPage===totalPage?` ${style.disabled}`:""}`}
                         onClick={()=>this.handleJump(currentPage+1)}
                     >&gt;</div>
                     <div
-                        className={`Item${currentPage===totalPage?" disabled":""}`}
+                        className={`${style.Item}${currentPage===totalPage?` ${style.disabled}`:""}`}
                         onClick={()=>this.handleJump(totalPage)}
                     >&raquo;</div>
                 </div>

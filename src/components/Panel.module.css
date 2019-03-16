@@ -1,0 +1,78 @@
+.Panel{
+
+}
+@keyframes fade {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+.Panel .Header {
+    position: relative;
+    border-bottom: 1px solid white;
+    font-weight: 900;
+    color:#FFFFFF;
+    font-size:24px;
+    background-color: #27ae60;
+}
+.Panel .Header input[type=checkbox]{
+    user-select: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    clip: rect(0, 0, 0, 0);
+    visibility: hidden;
+    opacity: 0;
+    transform: matrix3d(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+    z-index: -1;
+}
+.Panel .Header label {
+    user-select: none;
+    display: flex;
+    padding: 1rem;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+.Panel .Header label .Icon {
+    margin-left: auto;
+    transition: transform 0.3s ease-in-out;
+}
+.Panel .chevron::before {
+    content: "";
+    display: inline-block;
+    width: 0.45rem;
+    height: 0.45rem;
+    border-style: solid;
+    border-width: 0.25rem 0.25em 0 0;
+    transform: rotate(135deg);
+}
+.Panel .Body {
+    max-height: 0;
+    border-right: 1px solid #27ae60;
+    border-left: 1px solid #27ae60;
+    border-bottom: 1px solid #27ae60;
+    overflow: hidden;
+    transition: max-height 1s cubic-bezier(0.17, 0.04, 0.03, 0.94);
+}
+.Panel .Body .Content{
+    padding: 24px;
+}
+.Panel.active .Header {
+    border-bottom: none;
+}
+.Panel.active .Header label .Icon {
+    transform: rotate(-180deg);
+}
+.Panel.active .Body {
+    max-height: 9999px;
+    max-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: visible;
+}
+.Panel.active .Body .Content {
+    animation: fade 0.3s linear;
+}
